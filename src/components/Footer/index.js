@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 import './index.css';
 
-function Header() {
+function Footer() {
   const year = new Date().getFullYear();
   return (
     <div class="footer">
@@ -17,4 +17,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Footer;
