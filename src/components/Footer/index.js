@@ -7,7 +7,7 @@ import './index.css';
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <div class="footer">
+    <div className="footer">
       <Container>
         <Row>
           <Col>© Copyright {year}</Col>

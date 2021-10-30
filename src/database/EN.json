@@ -3,5 +3,15 @@
         "question": "auto",
         "answer": "car",
         "type": "text"
+    },
+    {
+        "question": "jablo",
+        "answer": "apple",
+        "type": "text"
+    },
+    {
+        "question": "papaya",
+        "answer": "papaya",
+        "type": "text"
     }
 ]

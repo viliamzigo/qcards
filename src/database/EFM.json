@@ -1,1 +1,7 @@
-[]
+[
+    {
+        "question": "$y = \\lim_{x \\to 0} x^{10}$, kde $x = 1$",
+        "answer": "$y = 0$",
+        "type": "tex"
+    }
+]

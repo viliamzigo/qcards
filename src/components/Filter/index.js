@@ -1,12 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Card';
-import Card from 'react-bootstrap/Col';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types'
 
-function Filter({ categoryFilters, setCategotyFilter, loadQuestions, getQuestion }) {
+function Filter({ categoryFilters, loadQuestions, getQuestion }) {
+
   const selectCategory = key => {
-    setCategotyFilter(key)
     loadQuestions(key)
     getQuestion()
   }
@@ -15,9 +16,19 @@ function Filter({ categoryFilters, setCategotyFilter, loadQuestions, getQuestion
     <Container>
       <Row  className="justify-content-center">
         <Col className="w-75">
-          <Card>
-              {categoryFilters}
-              <button onClick={() => selectCategory('EN')}>EN</button>
+          <Card body>
+            <Card.Title>Výber kategórie otázok</Card.Title>
+            <Card.Text>
+              Zvoľte kategóriu.
+            </Card.Text>
+            <ListGroup>
+            {categoryFilters.map((category, index) => (  
+              <ListGroup.Item action onClick={() => selectCategory(category)} key={index}>
+                {category}
+              </ListGroup.Item>
+            ))}
+              
+            </ListGroup>
           </Card>
         </Col>
       </Row>
@@ -26,8 +37,9 @@ function Filter({ categoryFilters, setCategotyFilter, loadQuestions, getQuestion
 }
 
 Filter.propTypes = {
-  categoryFilters: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  setCategotyFilter: PropTypes.func.isRequired
+  categoryFilters: PropTypes.array.isRequired,
+  loadQuestions: PropTypes.func.isRequired,
+  getQuestion: PropTypes.func.isRequired
 }
 
 export default Filter;
