@@ -18,8 +18,10 @@ const questions = (state = { questions: [], active: null, category: null }, acti
             const randomIndex = Math.floor(Math.random()*unanweredQuestions.length)
             state.questions.find(q => q.question === unanweredQuestions[randomIndex].question).answered = true
             return { ...state, active: unanweredQuestions[randomIndex] }
+        case 'RESET_STATE':
+            return { questions: [], active: null, category: null };
         default:
-            return state
+            return state;
     }
 }
 

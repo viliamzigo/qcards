@@ -7,10 +7,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-function Question({ question, getQuestion }) {
+function Question({ question, getQuestion, resetState }) {
   const [showAnswer, toggleAnswer] = useState(false);
 
-  const showHome = () => {}
   const nextQuestion = () => {
     toggleAnswer(false)
     getQuestion()
@@ -47,7 +46,7 @@ function Question({ question, getQuestion }) {
                 <Col>{showAnswer && <Button variant="success" onClick={() => nextQuestion()}>Ďalšia otázka</Button>}</Col>
               </Row>
               <Row className="m-3">
-                <Col><Button variant="secondary" onClick={() => showHome()}>Späť na výber kategórie</Button></Col>
+                <Col><Button variant="secondary" onClick={() => resetState()}>Späť na výber kategórie</Button></Col>
               </Row>
             </Container>
           </Card>
