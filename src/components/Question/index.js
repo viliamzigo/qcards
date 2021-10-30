@@ -1,9 +1,9 @@
 import './Question.css';
 
-function Question() {
+function Question({ question }) {
     return (
-      <div className="App">
-          question
+      <div>
+          {question.question}
       </div>
     );
   }

@@ -1,7 +1,8 @@
 import './App.css';
 
 import Header from "../../components/Header"
-import Filter from "../../components/Filter"
+import FilterContainer from "../../containers/FilterContainer"
+import QuestionContainer from "../../containers/QuestionContainer"
 import Footer from "../../components/Footer"
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App"> 
       <Header />
       <div class="content">
-        <Filter />
+        <FilterContainer />
+        <QuestionContainer />
       </div>
       <Footer />
     </div>
