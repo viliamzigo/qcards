@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import FilterContainer from "./FilterContainer"
 import QuestionContainer from "./QuestionContainer"
 import Footer from "../components/Footer"
+import About from "../components/About"
 
 
 export class App extends Component {
@@ -12,7 +13,7 @@ export class App extends Component {
     const { activeFilter } = this.props
     let content;
     if (activeFilter === null) {
-      content = <FilterContainer />;
+      content = <div><FilterContainer /><About /></div>;
     } else {
       content = <QuestionContainer />;
     }

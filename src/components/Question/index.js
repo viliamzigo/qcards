@@ -19,14 +19,18 @@ function Question({ question, getQuestion, resetState }) {
     return(<div/>);
   }
 
-  let content;
+  let content, buttons;
   if (question === 'OUT_OF_QUESTIONS') {
     content = <Card.Title className="m-3">OUT_OF_QUESTIONS</Card.Title>
+    buttons = <div />
   } else {
     content = <div className="question">
       <Card.Title className="m-3">{question.question}</Card.Title>
-      {!showAnswer && <Button variant="warning" onClick={() => toggleAnswer(true)} className="mt-3">Zobraziť odpoveď</Button>}
       {showAnswer && <Card.Text>{question.answer}</Card.Text>}
+    </div>
+    buttons = <div>
+      {!showAnswer && <Button variant="warning" onClick={() => toggleAnswer(true)}>Zobraziť odpoveď</Button>}
+      {showAnswer && <Button variant="success" onClick={() => nextQuestion()}>Ďalšia otázka</Button>}
     </div>
   }
 
@@ -43,7 +47,9 @@ function Question({ question, getQuestion, resetState }) {
               </Row>
 
               <Row className="d-flex justify-content-end m-3">
-                <Col>{showAnswer && <Button variant="success" onClick={() => nextQuestion()}>Ďalšia otázka</Button>}</Col>
+                <Col>
+                  {buttons}
+                </Col>
               </Row>
               <Row className="m-3">
                 <Col><Button variant="secondary" onClick={() => resetState()}>Späť na výber kategórie</Button></Col>
